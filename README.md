@@ -4,6 +4,7 @@ An open, end-to-end encrypted messaging protocol for people, their AI agents and
 
 - Current draft: [OSAP-draft-01.md](OSAP-draft-01.md) (adds agent connect/disconnect and sharing one agent with many people)
 - Previous draft: [OSAP-draft-00.md](OSAP-draft-00.md)
+- Proposed extension: [OSAP-LINK.md](OSAP-LINK.md) (multi-transport delivery: LAN, relay, USB, BLE, sound, QR; not a draft-01 wire change)
 - Reference implementation: Privaku Talk
 - Status: working draft, wire formats may change.
 
@@ -20,6 +21,18 @@ Today most people talk to AI agents through closed bot messengers, where the pla
 - **You approve what matters.** Risky actions such as deleting files, sending email or unlocking a door wait for your Face ID.
 - **Owner-controlled hardware.** You grant each agent access per device and per capability, and you can revoke it instantly, even while the agent is offline. Safety interlocks always win.
 - **Many devices.** Use it on any number of phones, tablets and computers, and every message reaches each of them.
+
+## OSAP-Link (proposed)
+
+[OSAP-LINK.md](OSAP-LINK.md) proposes a transport layer that carries unchanged OSAP envelopes over the best authorized path:
+
+- direct LAN/Ethernet (TLS WebSocket) for fast local delivery;
+- the relay over HTTPS as fallback;
+- USB serial (COBS) for devices with no network;
+- BLE, sound (ggwave) and QR/light for nearby pairing only;
+- WebRTC/QUIC as an optional later path.
+
+It keeps working through internet outages and needs no big cloud AI backend. A link never grants permission. Its latency figures are targets, not measurements.
 
 ## Screenshots
 
