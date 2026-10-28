@@ -298,6 +298,9 @@ Implementations claim conformance per area. Each item MUST pass.
 54. Member-sent text cannot change the member's permissions or the owner's settings.
 55. Relay storage for shared chats holds only ciphertext.
 
+## Future extension: OSAP-Link (non-normative)
+A multi-transport delivery layer (LAN, relay, USB serial, BLE, sound, QR/light, WebRTC/QUIC) is proposed in [OSAP-LINK.md](OSAP-LINK.md). It is non-normative and makes no change to this draft: envelopes, signatures, grants and approvals stay as specified here, and a transport link never grants permission. Its open questions are push content (conflict with test #22) and revocation for offline direct-link devices.
+
 ## 17. IANA / registries
 None yet. Future: `/.well-known/osap` URI suffix, body type registry, device class registry.
 
